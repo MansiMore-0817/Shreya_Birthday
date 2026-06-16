@@ -337,78 +337,92 @@ function stopConfetti() {
 
 // ============================================================
 //  BACKGROUND MUSIC — "Tum Ho Toh" (Saiyaara)
-//  YouTube video ID for the song
 // ============================================================
-const SONG_ID = 'hbnjcGdXPRY'; // Tum Ho Toh - Saiyaara
-let ytPlayer = null;
-let musicReady = false;
-let musicPlaying = false;
+const SONG_ID = '8SYPKQMW_2Q'; // Tum Ho Toh - Saiyaara
+let ytPlayer      = null;
+let musicReady    = false;
+let musicPlaying  = false;
 let userInteracted = false;
 
 const musicBtn  = document.getElementById('musicBtn');
 const musicIcon = document.getElementById('musicIcon');
 
-// YouTube IFrame API callback — fires when API script loads
+// YouTube IFrame API ready callback
 window.onYouTubeIframeAPIReady = function () {
   ytPlayer = new YT.Player('ytPlayer', {
-    height: '1',
-    width: '1',
     videoId: SONG_ID,
     playerVars: {
       autoplay: 0,
-      loop: 1,
-      playlist: SONG_ID,
+      loop:     1,
+      playlist: SONG_ID,  // required for loop to work
       controls: 0,
-      fs: 0,
-      rel: 0,
+      disablekb: 1,
+      fs:       0,
+      rel:      0,
       iv_load_policy: 3,
-      modestbranding: 1
+      modestbranding: 1,
+      origin: window.location.origin
     },
     events: {
-      onReady: function () {
-        musicReady = true;
-        ytPlayer.setVolume(55);
-        // if user already clicked before player was ready, start now
-        if (userInteracted) schedulePlay();
-      },
-      onStateChange: function (e) {
-        if (e.data === YT.PlayerState.PLAYING) {
-          musicPlaying = true;
-          musicBtn.classList.add('playing');
-          musicIcon.textContent = '🎶';
-        } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
-          musicPlaying = false;
-          musicBtn.classList.remove('playing');
-          musicIcon.textContent = '🎵';
-        }
-      }
+      onReady: onPlayerReady,
+      onStateChange: onPlayerStateChange
     }
   });
 };
 
-function schedulePlay() {
-  setTimeout(function () {
-    if (ytPlayer && musicReady && !musicPlaying) {
-      ytPlayer.playVideo();
-    }
-  }, 10000); // 10 seconds after first interaction
+function onPlayerReady() {
+  musicReady = true;
+  ytPlayer.setVolume(60);
+  // timer already running from page load — play as soon as ready + interacted + 10s passed
+  if (userInteracted && Date.now() - pageLoadTime >= 10000) {
+    tryPlay();
+  }
 }
 
-// First interaction anywhere on the page triggers the 10s countdown
+function onPlayerStateChange(e) {
+  if (e.data === YT.PlayerState.PLAYING) {
+    musicPlaying = true;
+    musicBtn.classList.add('playing');
+    musicIcon.textContent = '🎶';
+  } else if (
+    e.data === YT.PlayerState.PAUSED ||
+    e.data === YT.PlayerState.ENDED
+  ) {
+    musicPlaying = false;
+    musicBtn.classList.remove('playing');
+    musicIcon.textContent = '🎵';
+  }
+}
+
+function tryPlay() {
+  if (ytPlayer && musicReady && !musicPlaying) {
+    ytPlayer.playVideo();
+  }
+}
+
+// Start 10s timer immediately on page load
+const pageLoadTime = Date.now();
+setTimeout(function () {
+  // fires 10s after page load — play only if user has already interacted
+  if (userInteracted) tryPlay();
+}, 10000);
+
+// First interaction — play immediately if 10s already passed, else wait
 function handleFirstInteraction() {
   if (userInteracted) return;
   userInteracted = true;
-  document.removeEventListener('click', handleFirstInteraction);
+  document.removeEventListener('click',      handleFirstInteraction);
   document.removeEventListener('touchstart', handleFirstInteraction);
-  document.removeEventListener('scroll', handleFirstInteraction);
-  if (musicReady) schedulePlay();
+
+  const elapsed = Date.now() - pageLoadTime;
+  const remaining = Math.max(0, 10000 - elapsed);
+  setTimeout(tryPlay, remaining);
 }
 
-document.addEventListener('click', handleFirstInteraction, { passive: true });
+document.addEventListener('click',      handleFirstInteraction, { passive: true });
 document.addEventListener('touchstart', handleFirstInteraction, { passive: true });
-document.addEventListener('scroll', handleFirstInteraction, { passive: true });
 
-// Manual toggle button
+// Manual toggle
 musicBtn.addEventListener('click', function (e) {
   e.stopPropagation();
   if (!ytPlayer || !musicReady) return;
