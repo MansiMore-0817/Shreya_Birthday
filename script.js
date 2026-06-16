@@ -232,6 +232,10 @@ function surprise() {
         <br><br>
         Those moments will always stay close to my heart.
         No matter what, you will always have a special place there. 🤍
+        <br><br>
+        <strong style="font-family:'Great Vibes',cursive; font-size:28px; color:#c9184a;">
+          Love you — Rohit ❤️
+        </strong>
       </p>
       <div class="mini-hearts">💗 💕 💗</div>
     </div>
