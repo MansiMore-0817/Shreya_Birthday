@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Floating petals layer -->
+  <div class="petals-layer" id="petalsLayer"></div>
+
+  <!-- Navigation dots -->
+  <nav class="nav-dots" id="navDots">
+    <div class="nav-dot active" data-section="0" title="Home"></div>
+    <div class="nav-dot" data-section="1" title="Letter"></div>
+    <div class="nav-dot" data-section="2" title="Memories"></div>
+    <div class="nav-dot" data-section="3" title="Messages"></div>
+    <div class="nav-dot" data-section="4" title="Open When"></div>
+    <div class="nav-dot" data-section="5" title="Sky Wishes"></div>
+    <div class="nav-dot" data-section="6" title="Finale"></div>
+  </nav>
+
+  <!-- Confetti canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="sec-0">
+    <div class="hero-box">
+      <p class="eyebrow">✦ A little surprise made with love ✦</p>
+
+      <h1>
+        Happy Birthday<br>
+        <span>Shreya</span>
+      </h1>
+
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">For the girl who will always have a special place in my heart</p>
+
+      <button class="btn-primary" onclick="goLetter()">Open my heart &nbsp;💌</button>
+    </div>
+
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+
+  <!-- ============ LETTER ============ -->
+  <section class="letter-section" id="letter" data-sec="1">
+    <div class="section-title reveal">A Letter For You</div>
+    <p class="section-subtitle reveal">written from the heart</p>
+
+    <div class="letter-paper reveal">
+      <div class="letter-stamp">💌</div>
+
+      <span class="letter-greeting">Dearest Shreya,</span>
+
+      <p class="letter-body">
+        Thank you for choosing me and for making me a part of your life.<br><br>
+        I can never forget those days when you used to secretly talk to me even when your family was around.
+        I used to wait for your messages every single day — and one message from you was enough to bring a smile to my face.<br><br>
+        I can never forget Borade Sir's classes, because somehow those classes brought us even closer.
+        That little smile on your face whenever you saw my message... and the way your family used to ask,
+        <em>"Why are you smiling so much?"</em> — only we know the reason behind those smiles.<br><br>
+        Your efforts to meet me, sitting behind me on my bike, your hand resting on my shoulder,
+        our walks on the hills, our conversations and all those little moments — they were so precious.<br><br>
+        If I start writing about our memories, the day will end and my words still won't be enough.
+        Every single moment with you was beautiful. I never thought a day would come when we would become so distant.<br><br>
+        No matter what happens, those memories will always stay close to my heart.<br><br>
+        I know things are not the same between us right now, and I know you are hurt.
+        But I could never let your birthday pass without telling you how grateful I am for all the moments we shared.<br><br>
+        Take care of yourself, Shreya. Always keep smiling. 🤍
+      </p>
+
+      <span class="letter-sign">I miss you ❤️</span>
+      <div class="letter-wax">💋</div>
+    </div>
+  </section>
+
+
+  <!-- ============ MEMORIES ============ -->
+  <section class="memories-section" id="sec-2" data-sec="2">
+    <div class="section-title reveal">Little Memories</div>
+    <p class="section-subtitle reveal">📸 &nbsp; moments worth keeping forever</p>
+
+    <div class="scrapbook-grid">
+
+      <div class="polaroid reveal" style="transition-delay:0.05s">
+        <img src="images/photo1.jpg" alt="memory">
+        <div class="polaroid-caption">you always looked so beautiful 🤍</div>
+      </div>
+
+      <div class="polaroid featured reveal" style="transition-delay:0.10s">
+        <img src="images/WhatsApp Image 2026-06-17 at 2.54.09 AM.jpeg" alt="memory">
+        <div class="polaroid-caption">us, together ✨</div>
+      </div>
+
+      <div class="polaroid reveal" style="transition-delay:0.15s">
+        <img src="images/photo2.jpg" alt="memory">
+        <div class="polaroid-caption">our walks on the hills 🌸</div>
+      </div>
+
+      <div class="polaroid reveal" style="transition-delay:0.20s">
+        <img src="images/WhatsApp Image 2026-06-17 at 1.59.42 AM.jpeg" alt="memory">
+        <div class="polaroid-caption">always so graceful 💗</div>
+      </div>
+
+      <div class="polaroid reveal" style="transition-delay:0.25s">
+        <img src="images/WhatsApp Image 2026-06-17 at 2.36.21 AM.jpeg" alt="memory">
+        <div class="polaroid-caption">absolutely stunning 🌷</div>
+      </div>
+
+      <div class="polaroid reveal" style="transition-delay:0.30s">
+        <img src="images/photo3.jpg" alt="memory">
+        <div class="polaroid-caption">effortlessly you 🌸</div>
+      </div>
+
+      <div class="polaroid reveal" style="transition-delay:0.35s">
+        <img src="images/WhatsApp Image 2026-06-17 at 1.59.42 AM (2).jpeg" alt="memory">
+        <div class="polaroid-caption">words will never be enough 💫</div>
+      </div>
+
+      <div class="polaroid reveal" style="transition-delay:0.40s">
+        <img src="images/WhatsApp Image 2026-06-17 at 3.03.48 AM.jpeg" alt="memory">
+        <div class="polaroid-caption">close to my heart always 🌹</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============ MESSAGES ============ -->
+  <section class="messages-section" id="sec-3" data-sec="3">
+    <div class="section-title reveal">Things I want you to know</div>
+    <p class="section-subtitle reveal">🌷 &nbsp; little truths from me to you</p>
+
+    <div class="messages-grid">
+
+      <div class="msg-card reveal" style="transition-delay:0.05s">
+        <span class="msg-icon">❤️</span>
+        <h3>You are special</h3>
+        <p>One message from you was enough to make my whole day. That never changed.</p>
+      </div>
+
+      <div class="msg-card reveal" style="transition-delay:0.10s">
+        <span class="msg-icon">🌹</span>
+        <h3>Those smiles</h3>
+        <p>Only we know why you were smiling so much. And I'll always smile thinking about that.</p>
+      </div>
+
+      <div class="msg-card reveal" style="transition-delay:0.15s">
+        <span class="msg-icon">✨</span>
+        <h3>Every moment</h3>
+        <p>The hills, the bike rides, the conversations — I'd live every one of them again without hesitation.</p>
+      </div>
+
+      <div class="msg-card reveal" style="transition-delay:0.20s">
+        <span class="msg-icon">🦋</span>
+        <h3>Always grateful</h3>
+        <p>Thank you for letting me be a part of your story, Shreya. Truly.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============ OPEN WHEN ============ -->
+  <section class="open-section" id="sec-4" data-sec="4">
+    <div class="section-title reveal">Open When...</div>
+    <p class="section-subtitle reveal">💌 &nbsp; open these when you need me most</p>
+
+    <div class="envelopes-row">
+
+      <div class="env-card reveal" style="transition-delay:0.05s" onclick="openLetter('smile')">
+        <div class="env-flap"></div>
+        <div class="env-body">
+          <h3>Need a smile?</h3>
+          <p>A tiny reminder waiting ✨</p>
+          <div class="env-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="env-card reveal" style="transition-delay:0.12s" onclick="openLetter('low')">
+        <div class="env-flap"></div>
+        <div class="env-body">
+          <h3>Feeling low?</h3>
+          <p>A warm hug in words 🤍</p>
+          <div class="env-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="env-card reveal" style="transition-delay:0.20s" onclick="openLetter('comfort')">
+        <div class="env-flap"></div>
+        <div class="env-body">
+          <h3>Need comfort?</h3>
+          <p>A little love waiting 💕</p>
+          <div class="env-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Letter Popup -->
+  <div id="letterPopup" class="popup">
+    <div class="popup-card">
+      <div class="popup-hearts" id="popupHeartsContainer"></div>
+      <button class="close-btn" onclick="closeLetter()">×</button>
+      <div id="popupIcon">💌</div>
+      <h2 id="popupTitle"></h2>
+      <p id="popupText"></p>
+    </div>
+  </div>
+
+
+  <!-- ============ SKY WISHES ============ -->
+  <section class="wish-section" id="sec-5" data-sec="5">
+
+    <div class="moon-wrap">🌙</div>
+
+    <div class="section-title">A Sky Full Of Wishes</div>
+    <p class="sky-text">Every star carries a little wish for you 🤍</p>
+
+    <div class="star-field">
+
+      <div class="wish-star" onclick="showWish(0)">
+        <span class="wish-star-icon">⭐</span>
+        <span class="wish-star-label">Wish I</span>
+      </div>
+
+      <div class="wish-star" onclick="showWish(1)">
+        <span class="wish-star-icon">✨</span>
+        <span class="wish-star-label">Wish II</span>
+      </div>
+
+      <div class="wish-star" onclick="showWish(2)">
+        <span class="wish-star-icon">🌟</span>
+        <span class="wish-star-label">Wish III</span>
+      </div>
+
+      <div class="wish-star" onclick="showWish(3)">
+        <span class="wish-star-icon">💫</span>
+        <span class="wish-star-label">Wish IV</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sky Wish Popup -->
+  <div id="wishPopup" class="wish-popup">
+    <div class="wish-card">
+      <div class="popup-hearts" id="wishHeartsContainer"></div>
+      <button class="close-popup" onclick="closeWishPopup()">×</button>
+      <div id="wishEmoji">✨</div>
+      <h2 id="wishTitle"></h2>
+      <p id="wishMessage"></p>
+    </div>
+  </div>
+
+
+  <!-- ============ FINAL ============ -->
+  <section class="final-section" id="sec-6" data-sec="6">
+    <span class="final-heart">❤️</span>
+    <div class="section-title reveal">I miss you, Shreya</div>
+    <p class="final-tagline reveal">Take care of yourself and always keep smiling ✨</p>
+    <button class="btn-surprise reveal" onclick="surprise()">One last thing to tell you &nbsp;�</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
