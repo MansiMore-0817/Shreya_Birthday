@@ -996,6 +996,43 @@ section {
 }
 
 /* ============================================
+   MUSIC BUTTON
+   ============================================ */
+#musicBtn {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c9184a, #8b0000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9990;
+  box-shadow: 0 8px 25px rgba(201,24,74,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1.5px solid rgba(255,200,220,0.3);
+}
+#musicBtn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 12px 35px rgba(201,24,74,0.65);
+}
+#musicBtn.playing #musicIcon {
+  animation: spinNote 2s linear infinite;
+}
+#musicIcon {
+  font-size: 20px;
+  display: block;
+}
+@keyframes spinNote {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ============================================
    MOBILE RESPONSIVE
    ============================================ */
 

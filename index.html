@@ -280,6 +280,17 @@
     <button class="btn-surprise reveal" onclick="surprise()">One last thing to tell you &nbsp;�</button>
   </section>
 
+  <!-- Music Player -->
+  <div id="musicBtn" title="Toggle music">
+    <span id="musicIcon">🎵</span>
+  </div>
+
+  <!-- Hidden YouTube player container -->
+  <div id="ytPlayerWrap" style="position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;bottom:0;left:0;overflow:hidden;">
+    <div id="ytPlayer"></div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="script.js"></script>
 </body>
 </html>

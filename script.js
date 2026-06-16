@@ -334,3 +334,87 @@ function stopConfetti() {
   confettiCanvas.style.display = 'none';
   confettiParticles = [];
 }
+
+// ============================================================
+//  BACKGROUND MUSIC — "Tum Ho Toh" (Saiyaara)
+//  YouTube video ID for the song
+// ============================================================
+const SONG_ID = 'hbnjcGdXPRY'; // Tum Ho Toh - Saiyaara
+let ytPlayer = null;
+let musicReady = false;
+let musicPlaying = false;
+let userInteracted = false;
+
+const musicBtn  = document.getElementById('musicBtn');
+const musicIcon = document.getElementById('musicIcon');
+
+// YouTube IFrame API callback — fires when API script loads
+window.onYouTubeIframeAPIReady = function () {
+  ytPlayer = new YT.Player('ytPlayer', {
+    height: '1',
+    width: '1',
+    videoId: SONG_ID,
+    playerVars: {
+      autoplay: 0,
+      loop: 1,
+      playlist: SONG_ID,
+      controls: 0,
+      fs: 0,
+      rel: 0,
+      iv_load_policy: 3,
+      modestbranding: 1
+    },
+    events: {
+      onReady: function () {
+        musicReady = true;
+        ytPlayer.setVolume(55);
+        // if user already clicked before player was ready, start now
+        if (userInteracted) schedulePlay();
+      },
+      onStateChange: function (e) {
+        if (e.data === YT.PlayerState.PLAYING) {
+          musicPlaying = true;
+          musicBtn.classList.add('playing');
+          musicIcon.textContent = '🎶';
+        } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+          musicPlaying = false;
+          musicBtn.classList.remove('playing');
+          musicIcon.textContent = '🎵';
+        }
+      }
+    }
+  });
+};
+
+function schedulePlay() {
+  setTimeout(function () {
+    if (ytPlayer && musicReady && !musicPlaying) {
+      ytPlayer.playVideo();
+    }
+  }, 10000); // 10 seconds after first interaction
+}
+
+// First interaction anywhere on the page triggers the 10s countdown
+function handleFirstInteraction() {
+  if (userInteracted) return;
+  userInteracted = true;
+  document.removeEventListener('click', handleFirstInteraction);
+  document.removeEventListener('touchstart', handleFirstInteraction);
+  document.removeEventListener('scroll', handleFirstInteraction);
+  if (musicReady) schedulePlay();
+}
+
+document.addEventListener('click', handleFirstInteraction, { passive: true });
+document.addEventListener('touchstart', handleFirstInteraction, { passive: true });
+document.addEventListener('scroll', handleFirstInteraction, { passive: true });
+
+// Manual toggle button
+musicBtn.addEventListener('click', function (e) {
+  e.stopPropagation();
+  if (!ytPlayer || !musicReady) return;
+  if (musicPlaying) {
+    ytPlayer.pauseVideo();
+  } else {
+    ytPlayer.playVideo();
+  }
+});
