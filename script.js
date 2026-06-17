@@ -231,7 +231,7 @@ function surprise() {
         No matter how much time passes, a part of me will always smile when I hear your name.
         Thank you for being one of the most beautiful chapters of my life.
         I'll always wish happiness for you, even from afar.
-        Happy Birthday, Shreya.
+        Happy Birthday, Manu.
 
         <br><br>
         
