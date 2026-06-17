@@ -107,22 +107,22 @@ const skyWishes = [
   {
     emoji: '🌷',
     title: 'A wish for you',
-    msg: 'May this year bring you more of those moments that make your eyes light up — the ones only you know the reason behind. You deserve every bit of that happiness, Shreya.'
+    msg: 'I wish your smile never fades, no matter what life brings, Shreya.'
   },
   {
     emoji: '✨',
     title: 'I waited for you',
-    msg: 'Every single day, I waited for your message. And every single time, it made me smile more than you will ever know. That feeling was real, and it always will be.'
+    msg: 'I wish every dream you keep in your heart finds its way to reality.'
   },
   {
     emoji: '🌙',
     title: 'Close to my heart',
-    msg: 'No matter how distant we have become, those memories live in a part of my heart that no one else can reach. I hope you know that.'
+    msg: 'I wish you always find people who choose you, value you, and stay.'
   },
   {
     emoji: '🦋',
     title: 'Your new chapter',
-    msg: 'May this birthday be the start of something beautiful for you — peaceful days, warm moments, and everything your heart quietly wishes for. You deserve it all.'
+    msg: 'I wish you never forget how wonderful and unforgettable you truly are.'
   }
 ];
 
@@ -148,26 +148,24 @@ const letters = {
     title: 'When you need a smile 🤍',
     text:
       'Hey Shreya 🌷<br><br>' +
-      'Remember those days when you used to secretly look at your phone and smile? ' +
-      'Your family would ask, <em>"Why are you smiling so much?"</em> — and only we knew the answer.<br><br>' +
-      'That smile of yours was genuinely one of the most beautiful things I ever got to witness. ' +
-      'Never let anyone take that away from you. ✨'
+      ' Just remember this- ' +
+      ' Somewhere in this world, there is a person whose day still gets better when he thinks about you. 🌸' +
+      '<br><br>And that person is me. 💗'
   },
   low: {
     title: 'When you are feeling low 💗',
     text:
       'If today feels heavy, I want you to know this — <br><br>' +
-      'You are not alone. Even from a distance, someone is still thinking about you, ' +
-      'still hoping you are okay, still cheering for you quietly.<br><br>' +
-      'Be gentle with yourself. You are stronger than you think, and you are loved more than you know. 🤍'
+      'You dont have to be strong all the time ' +
+      'Rest, breathe and be gentle with yourself. The same heart that survived yesterday will survive today too! <br><br>' 
   },
   comfort: {
     title: 'When you need comfort 🌙',
     text:
-      'I know things between us are not the same right now. And I know you are hurt.<br><br>' +
-      'But I want you to know — nothing that happened takes away from how precious every moment with you was. ' +
+      'Close your eyes for a moment. <br><br>' +
+      'Imagine someone quietly reminding you that your are loved, appreciated, and more important than u realize. ' +
       'You were, and always will be, someone special to me.<br><br>' +
-      'May your heart find peace, warmth, and all the softness it deserves. 💕'
+      '💕'
   }
 };
 
@@ -226,12 +224,17 @@ function surprise() {
       <div class="big-heart">❤️</div>
       <h1>I could never forget you</h1>
       <p>
-        I could never let your birthday pass without saying this —<br><br>
-        Thank you, Shreya. For every secret conversation, every smile,
-        every moment on the hills, and every memory we made together.
+        Maybe people change.
+        Maybe distances grow.
+        Maybe stories end differently than we expected.
+        But some feelings never really leave.
+        No matter how much time passes, a part of me will always smile when I hear your name.
+        Thank you for being one of the most beautiful chapters of my life.
+        I'll always wish happiness for you, even from afar.
+        Happy Birthday, Shreya.
+
         <br><br>
-        Those moments will always stay close to my heart.
-        No matter what, you will always have a special place there. 🤍
+        
         <br><br>
         <strong style="font-family:'Great Vibes',cursive; font-size:28px; color:#c9184a;">
           Love you — Rohit ❤️
